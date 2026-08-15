@@ -4,7 +4,7 @@ def AWS_REGION = "eu-central-1"
 def VENDOR = "slin-master"
 def PROJECT = "simpsons-quotes-api"
 
-node('docker-agent') {
+node('build-agent') {
     ansiColor('xterm') {
         properties([
             buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '14', numToKeepStr: '20')),
