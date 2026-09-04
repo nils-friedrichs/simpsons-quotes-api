@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "slin-master/simpsons-quotes-api",
+    "name": "nils-friedrichs/simpsons-quotes-api",
     "type": "project",
     "description": "Laravel 13 API for authenticated Simpsons quote retrieval and per-user quote history.",
     "keywords": ["laravel", "api", "quotes", "simpsons"],

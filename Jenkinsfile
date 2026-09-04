@@ -1,7 +1,7 @@
 #!groovy
 
 def AWS_REGION = "eu-central-1"
-def VENDOR = "slin-master"
+def VENDOR = "nils-friedrichs"
 def PROJECT = "simpsons-quotes-api"
 
 node('build-agent') {

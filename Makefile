@@ -9,7 +9,7 @@ AWS_ACCOUNT_ID ?= $(shell aws sts get-caller-identity --query Account --output t
 GIT_REV ?= $(shell git log -1 --pretty=format:"%h" 2>/dev/null || echo "n/a")
 GIT_BRANCH ?= $(shell git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null || echo "n/a")
 BUILD_NUMBER ?= 1
-DOCKER_REPO_NAME ?= slin-master/$(PROJECT_NAME)
+DOCKER_REPO_NAME ?= nils-friedrichs/$(PROJECT_NAME)
 DOCKER_REPO_URL ?= $(if $(AWS_ACCOUNT_ID),$(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com)
 DOCKER_REPO_URI ?= $(if $(DOCKER_REPO_URL),$(DOCKER_REPO_URL)/$(DOCKER_REPO_NAME),$(DOCKER_REPO_NAME))
 DOCKER_TAG := latest
