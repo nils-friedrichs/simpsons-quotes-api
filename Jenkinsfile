@@ -3,6 +3,7 @@
 def AWS_REGION = "eu-central-1"
 def VENDOR = "nils-friedrichs"
 def PROJECT = "simpsons-quotes-api"
+def HELM_RELEASE_PATH = "releases/prod/internal/simpsons-quotes-api.yaml"
 
 node('build-agent') {
     ansiColor('xterm') {
@@ -83,8 +84,8 @@ node('build-agent') {
                 )
 
                 dir('helm-charts') {
-                    sh "sed -i 's/tag: \"[^\"]*\"/tag: \"${IMAGE_TAG}\"/' releases/prod/simpsons-quotes-api.yaml"
-                    sh "git add releases/prod/simpsons-quotes-api.yaml"
+                    sh "sed -i 's/tag: \"[^\"]*\"/tag: \"${IMAGE_TAG}\"/' ${HELM_RELEASE_PATH}"
+                    sh "git add ${HELM_RELEASE_PATH}"
                     sh "git commit -m 'Update ${PROJECT} to ${IMAGE_TAG} for prod deployment' || true"
                     sshagent(credentials: ['DEPLOY_KEY_JENKINS']) {
                         sh 'git push git@github.com:apitree/helm-charts.git HEAD:master'
